@@ -11,7 +11,6 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 public class Coffee {
-
     @Id
     private String id;
     private String name;
