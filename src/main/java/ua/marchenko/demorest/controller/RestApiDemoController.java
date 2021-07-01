@@ -22,7 +22,6 @@ public class RestApiDemoController {
         this.coffeeRepository = coffeeRepository;
     }
 
-
     @GetMapping
     public Iterable<Coffee> getCoffees() {
         return coffeeRepository.findAll();
@@ -41,8 +40,8 @@ public class RestApiDemoController {
     @PutMapping("/{id}")
     public ResponseEntity<Coffee> putCoffee(@PathVariable String id, @RequestBody Coffee coffee) {
         return (!coffeeRepository.existsById(id))
-                ? new ResponseEntity<>(postCoffee(coffee), HttpStatus.CREATED)
-                : new ResponseEntity<>(coffee, HttpStatus.OK);
+                ? new ResponseEntity<>(coffee, HttpStatus.OK)
+                : new ResponseEntity<>(postCoffee(coffee), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
